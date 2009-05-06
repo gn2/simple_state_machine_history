@@ -3,6 +3,10 @@ SimpleStateMachineHistory
 
 Introduction goes here.
 
+Todo
+====
+Write README
+Handle migration for SimpleStateTransition model
 
 Example
 =======
