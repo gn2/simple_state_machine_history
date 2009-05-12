@@ -3,6 +3,9 @@ SimpleStateMachineHistory
 
 I love using AASM (http://github.com/rubyist/aasm/tree/master). However, I sometimes like to keep track of the evolution of my state machines. This is what this plugin does.
 
+First, run the following rake task to add the necessary table in your database.
+  rake db:migrate:simple_state_machine_history 
+
 Just add the following in your model:
 
   state_machine_history
@@ -10,11 +13,6 @@ Just add the following in your model:
 The default column for state is :state. If your state machine is using a different column, you can specify it like this:
 
   state_machine_history :column => :status_column
-
-
-Todo
-====
-Handle migration for SimpleStateTransition model (test+code+doc)
 
 
 Example
