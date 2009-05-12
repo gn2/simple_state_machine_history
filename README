@@ -1,17 +1,49 @@
 SimpleStateMachineHistory
 =========================
 
-Introduction goes here.
+I love using AASM (http://github.com/rubyist/aasm/tree/master). However, I sometimes like to keep track of the evolution of my state machines. This is what this plugin does.
+
+Just add the following in your model:
+
+  state_machine_history
+
+The default column for state is :state. If your state machine is using a different column, you can specify it like this:
+
+  state_machine_history :column => :status_column
+
 
 Todo
 ====
-Write README
-Handle migration for SimpleStateTransition model
+Handle migration for SimpleStateTransition model (test+code+doc)
+
 
 Example
 =======
 
-Example goes here.
+class TestStateMachine < ActiveRecord::Base
+  include AASM
+  aasm_column :state
+  aasm_initial_state :pending
+  aasm_state :pending
+  aasm_state :active
+  aasm_event :activate do
+    transitions :from => :pending, :to => :active 
+  end
+  state_machine_history
+end
 
 
-Copyright (c) 2009 [name of plugin creator], released under the MIT license
+class AnotherTestStateMachine < ActiveRecord::Base
+  include AASM
+  aasm_column :status_column
+  aasm_initial_state :pending
+  aasm_state :pending
+  aasm_state :active
+  aasm_event :activate do
+    transitions :from => :pending, :to => :active 
+  end
+  state_machine_history :column => :status_column
+end
+
+
+Copyright (c) 2009 Adrien Wartel, released under the MIT license
