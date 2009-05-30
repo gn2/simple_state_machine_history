@@ -44,4 +44,4 @@ class AnotherTestStateMachine < ActiveRecord::Base
 end
 
 
-Copyright (c) 2009 Adrien Wartel, released under the MIT license
+Copyright (c) 2009 Adrien (adrien[at]gn2[dot]fr), released under the MIT license
