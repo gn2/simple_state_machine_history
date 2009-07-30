@@ -5,6 +5,7 @@ class CreateSimpleStateTransitions < ActiveRecord::Migration
       t.integer   :simple_state_machine_id,    :null => false
       t.string    :simple_state_machine_type,  :null => false
       t.datetime  :created_at
+    end
   end  
   
   def self.down 
